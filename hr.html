@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html class="theme theme-white">
+<head>
+<meta charset="utf-8">
+
+<meta http-equiv="refresh" content="120">
+<meta http-equiv="refresh" content="120">
+<title>热水哥</title>
+    <link href="http://reshuige.com/css_new/template.css" rel="stylesheet" media="screen">
+ 
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style type="text/css">
+
+#wmd-preview h1  {color: #0077bb; /* 将标题改为蓝色 */}</style>
+
+
+
+ <style type="text/css">
+      .layui-nav
+      {
+        background-color: #fff;
+        float: right;
+      }
+      .layui-nav .layui-nav-item a 
+      {
+        color: black;
+      }
+	  .floor a{
+		color:#707070;
+	  }
+    </style>
+
+
+    
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        #weixin-tip-box {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 4px;
+            align-items: center;
+        }
+        .weixin-tip {
+            background: #40b2a8;
+            z-index: 100;
+            padding: 8px;
+            border-radius: 8px;
+            margin-right: 8px
+        }
+ 
+        .weixin-tip p {
+            text-align: center;
+            font-size: 14px;
+            color: #fff
+        }
+ 
+        .weixin-tip p.content {
+            text-align: center;
+            font-size: 14px
+        }
+ 
+        .triangle_border_up {
+            width: 0;
+            height: 0;
+            border-width: 0 6px 12px;
+            border-style: solid;
+            border-color: transparent transparent #40b2a8;
+            /*透明 透明  灰*/
+            margin-left: 114px
+        }
+    </style>
+
+
+ 
+<body class="success">
+    <div id='weixin-tip-box'>
+        <div class="triangle_border_up">
+            <span></span>
+        </div>
+        <div class="weixin-tip">
+            <p>
+                请点击右上角
+            </p>
+            <p class="content">
+                选择"推荐使用浏览器访问本站"
+            </p>
+        </div>
+    </div>
+    
+
+</div>
+     
+    <script type="text/javascript">
+        var is_weixin = (function () {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {//微信中打开网页
+                return true;
+            } else if (ua.match(/QQ/i) == "qq") {//qq里打开网页
+                return true;
+            } else {
+                return true;
+            }
+        })();
+        window.onload = function () {
+            var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+            var tip = document.getElementById('weixin-tip-box');
+            if (is_weixin) {
+                tip.style.display = 'block';
+                return false;
+            }
+        }
+    </script>
+
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="http://reshuige.com">热水哥主页</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/kc.html">日常库存</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/gqkc.html">活动库存</a>
+				</li>
+				
+							
+									<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hddm.html">华润活动代码查询</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://www.reshuige.com/qqqun.html">关注热水哥</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hr.html">华润管理工具</a>
+				</li>
+
+					<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hddm.html">华润活动模式代码查询</a>
+				</li>
+		
+			</ul>
+		</div>
+	</nav>
+
+<body class="theme theme-white">
+	
+
+	
+	
+<div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_SVG_Hidden"></div><svg><defs id="MathJax_SVG_glyphs"><path id="MJMATHI-45" stroke-width="1" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path><path id="MJMAIN-3D" stroke-width="1" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJMATHI-6D" stroke-width="1" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJMATHI-63" stroke-width="1" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path id="MJMAIN-32" stroke-width="1" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJSZ1-2211" stroke-width="1" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path><path id="MJMATHI-6E" stroke-width="1" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path id="MJMATHI-69" stroke-width="1" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path id="MJMAIN-31" stroke-width="1" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJMATHI-61" stroke-width="1" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path><path id="MJMAIN-30" stroke-width="1" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs></svg></div><div id="wmd-preview" class="wmd-preview wmd-preview-full-reader"><div class="md-section-divider"></div><div class="md-section-divider"></div><h1 data-anchor-id="lrst" id="-">华润万家管理工具</h1><p data-anchor-id="755f"></p><blockquote data-anchor-id="qxeb" class="white-blockquote">
+  <ul>
+  <li>软件告知：软件纯属自愿赞助，并且软件仅供交流和学习，有一定的电脑常识再赞助。</li>
+  <li>禁止一切违规行为，一切后果由本人承担。仅供交流。</li>
+    <li>预防电诈，禁止外借信息和卡片</li>
+  <li>如果因你个人问题造成的违规问题，由软件使用者本人承担，与作者无关。</li>
+    <li>不传谣，不造谣，传谣造谣违法，合法合理的参加任何线报活动。</li>
+  <br>
+【若软件关闭清退，按照时长处理退款即可，未关闭，不退不换】
+<a href="#anchor">点我赞助</a>
+<!-- 这里是一些内容 -->
+
+
+<td><a href="" target="_blank"></a></td>
+  </ul>
+</blockquote><hr><blockquote data-anchor-id="l9yt" class="white-blockquote">
+
+<h4 class="title text-white title-dark"> 免责声明 </h4>
+
+本软件仅供测试交流使用，不得用于任何违规用途。使用本软件所造成的一切后果均由使用者本人负责，与软件开发者无关。使用者应自行承担使用本软件的风险，并严格遵守当地法律法规。软件开发者不对使用本软件所造成的任何损失或损害承担任何责任。使用本软件即表示您已经阅读并同意本免责声明的所有条款和条件。如果您不同意本免责声明的任何条款，请勿使用本软件。
+</blockquote><table data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+		<hr>
+	<img src="dljc1.png" alt="软件截图"></p><p data-anchor-id="skx0">
+		<hr>
+
+
+	<table data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+  <thead data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <th colspan="2">下载地址</th>
+    </tr>
+  </thead>
+  <tbody data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <td>软件下载地址</td>
+      <td><a href="https://rsg.lanzouo.com/hrglgjys"> 点我下载 下载链接（优化版-华润万家管理工具v4.8（全部下载次版本）</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+  <thead>
+    <tr>
+      <th colspan="3">赞助地址</th>
+    </tr>
+  </thead>
+  <tbody data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <td>软件赞助地址 那个能打</td>
+      <td><a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D">点我 赞助链接</a>
+      
+      
+      </td>
+  
+    </tr>
+    
+    <tr>
+      <td>人工联系</td>
+      <td>微信：reshuige666 （建议链接赞助）</td>
+    </tr>
+    
+        <tr>
+      <td>赞助地址</td>
+      <td style="padding: 10px;"><a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D" class="btn btn-success">赞助链接</a><a name="anchor"></a>
+              <a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D" class="btn btn-info">赞助链接2</a>
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+  <thead data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <th colspan="3">视频教程</th>
+    </tr>
+  </thead>
+  <tbody  data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <td>报名视频教程</td>
+      <td><a href="http://175.178.75.96:1314/bmjc.mp4">报名视频教程</a></td>
+    </tr>
+    <tr>
+      <td>多线程登录教程 （可以多开一个窗口，用第二个窗口进行操作）</td>
+      <td><a href="http://175.178.75.96:1314/cxjc.mp4">多线程登录教程</a></td>
+    </tr>
+        <tr>
+      <td>活动模式报名，查询教程（1000ml等）</td>
+      <td><a href="http://175.178.75.96:1314/hdms.mp4">活动模式教程</a></td>
+    </tr>
+    
+    
+  </tbody>
+        <th colspan="2">文字教程</th>
+    </tr>
+  </thead>
+  <tbody  data-anchor-id="pjb7" class="table table-striped-white table-bordered">
+    <tr>
+      <td>必须看的换IP教程</td>
+      <td><a href="http://reshuige.com/ipjc.html">必须看的换IP教程</a></td>
+    </tr>
+    <tr>
+      <td>相关支持库安装</td>
+      <td><a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO">相关支持库安装</a></td>
+    </tr>
+  </tbody>
+</table>
+  
+  
+</table>
+
+
+
+
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/kc.html">日常库存</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/gqkc.html">活动库存</a>
+				</li>
+				
+							
+									<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hddm.html">华润活动代码查询</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://www.reshuige.com/qqqun.html">关注热水哥</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hr.html">华润管理工具</a>
+				</li>
+
+					<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hddm.html">华润活动模式代码查询</a>
+				</li>
+		
+			</ul>
+
+<hr>
+
+                  
+<style>
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .btn-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+</style>
+
+<table style="font-size: 18px; color: #333; border-collapse: collapse; border: 1px solid #ccc; margin-bottom: 20px;">
+  <tbody style="background-color: #fff;">
+    <tr>
+      <td style="padding: 10px;">软件下载地址</td>
+      <td style="padding: 10px;"><a href="https://rsg.lanzouo.com/hrglgjys" class="btn btn-primary">下载链接</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table style="font-size: 18px; color: #333; border-collapse: collapse; border: 1px solid #ccc; margin-bottom: 20px;">
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th colspan="2" style="padding: 10px;">赞助地址</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #fff;">
+    <tr>
+      <td style="padding: 10px;">软件赞助地址</td>
+      <td style="padding: 10px;">   <a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D" class="btn btn-success">赞助链接</a>
+      
+       
+        <a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D" class="btn btn-info">赞助链接2</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;">人工联系</td>
+      <td style="padding: 10px;">微信：reshuige666 （建议链接赞助）</td>
+    </tr>
+  </tbody>
+</table>
+
+<table style="font-size: 18px; color: #333; border-collapse: collapse; border: 1px solid #ccc;">
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th colspan="2" style="padding: 10px;">视频教程</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #fff;">
+    <tr>
+      <td style="padding: 10px;">报名视频教程</td>
+      <td style="padding: 10px;"><a href="http://175.178.75.96:1314/bmjc.mp4" class="btn btn-primary">观看视频</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;">多线程登录教程（可以多开一个窗口，用第二个窗口进行操作）</td>
+      <td style="padding: 10px;"><a href="http://175.178.75.96:1314/cxjc.mp4" class="btn btn-primary">观看视频</a></td>
+    </tr>
+        <tr>
+      <td style="padding: 10px;">活动模式报名，查询教程（1000ml）</td>
+      <td style="padding: 10px;"><a href="http://175.178.75.96:1314/hdms.mp4" class="btn btn-primary">观看视频</a></td>
+    </tr>
+  </tbody>
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th colspan="2" style="padding: 10px;">文字教程</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #fff;">
+    <tr>
+      <td style="padding: 10px;">必须看的换IP教程</td>
+      <td style="padding: 10px;"><a href="http://reshuige.com/ipjc.html" class="btn btn-success">查看教程</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 10px;">相关支持库安装</td>
+      <td style="padding: 10px;"><a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO" class="btn btn-danger">查看教程</a></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<hr>
+
+					<h5 id="" style="text-align:center;">
+						<a href="https://rsg.lanzouo.com/hrglgjys" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>优化版-华润万家管理工具v4.8（全部下载次版本）</strong></span></a>
+					</h5>
+					<hr>
+										<h5 id="" style="text-align:center;">
+						<a href="https://rsg.lanzouh.com/b0e3puvrg" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>建议观看的视频教程</strong></span></a>
+					</h5>
+
+					<hr>
+										<h5 id="" style="text-align:center;">
+						<a href="https://www.houfaka.com/liebiao/9812ECFE0510DF6D" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>赞助地址</strong></span></a>
+						<br>
+
+					</h5>
+
+
+					<hr>
+										<h5 id="" style="text-align:center;">
+						<a href="http://175.178.75.96:1314/bmjc.mp4" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>报名教程</strong></span></a>
+						 
+					</h5>
+															<h5 id="" style="text-align:center;">
+						<a href="http://175.178.75.96:1314/cxjc.mp4" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>多线程登录教程</strong></span></a>
+						 
+					</h5>
+
+<hr>
+
+
+
+
+                  
+
+
+<div style="position: fixed; top: 350px; left: 50%; margin-left: -735px; width: 140px; border-radius: 7px; overflow: hidden;">
+    <img style="max-width: 100%; height: auto; vertical-align: top;" src="http://reshuige.com/zfbhbm.png"> <strong><span style="color:#E53333;">赞助-省钱扫我</span></strong>
+</div>
+
+</body>
+</html>
+
+
+	<!--续费网站维护中，有问题联系微信：reshuige666-->
+
+
+
+
+<!--本网站任何工具学习交流时测试使用！请勿作为任何非法用途行动！如出现任何纠纷，作者不承担任何法律责任！如出内容如造成侵权，请联系作者删除软件和进行销毁！使用者所造成的一切后果自行承担，作者不负责任。请在浏览器打开此网站，不要在微信里打开，避免拦截【请刷新网页一次】有问题联系邮箱:935474823@qq.com</strong></span></span> -->
+<!--<thead>-->
+<!--	 <hr>-->
+<!--<tr>-->
+<!-- <th>预计5月1号做出应对业务调整【可能配合视情况关停软件服务】</th>-->
+<!-- <th style="text-align:right;"></th>-->
+<!-- <th style="text-align:center;"></th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody><tr>-->
+<!-- <td><a id="YUEZEYI1" href="https://www.zuuu.net/links/8143AFB1" target="_blank">点我赞助地址 软件赞助</a></td>-->
+<!-- <td style="text-align:right;"></td>-->
+<!--   <td style="text-align:center; "></td>-->
+<!--<td style="text-align:center; "><a id="YUEZEYI1" href="https://www.zuuu.net/links/8143AFB1" target="_blank">点我赞助地址 软件赞助</a></td>-->
+<!--  <td style="text-align:center; "><a id="YUEZEYI1" href="https://www.zuuu.cn/links/8143AFB1" target="_blank">赞助地址2[个别地区]</a></td>-->
+  
+<!--</tr>-->
+<!--<tr>-->
+<!-- <td>15天</td>-->
+<!-- <td style="text-align:right;">0</td>-->
+<!-- <td style="text-align:center;"><a id="YUEZEYI1" href="https://www.zuuu.net/links/8143AFB1" target="_blank">点我赞助地址 软件赞助</a></td>-->
+<!--  <td style="text-align:center;"><a id="YUEZEYI1" href="https://www.zuuu.cn/links/8143AFB1" target="_blank">赞助地址【个别地区】</a></td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!-- <td>15天</td>-->
+<!-- <td style="text-align:right;">0</td>-->
+<!-- <td style="text-align:center;"><a id="YUEZEYI1" href="https://www.zuuu.net/links/8143AFB1" target="_blank">点我赞助地址 软件赞助</a></td>-->
+<!-- <td style="text-align:center;"><a id="YUEZEYI1" href="https://www.zuuu.cn/links/8143AFB1" target="_blank">赞助地址【个别地区】</a></td>-->
+<!--</tr>-->
+
+		
+<!--		<tr>-->
+
+<!--</tr>-->
+
+<!--
+	
+
+</p>
+<p>
+<div style="text-align:center;">
+
+</div>
+
+
+</p>
+<p>
+
+</p>
+<p>
+
+</p>
+<div class="md-section-divider">
+	
+</div><h2 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO"   target="_blank"></a> </h2>
+
+<div class="qr_code_pc" align="center">
+	<img id="gzh_img"  class="qr_code_pc_img" src="gzhewm.png">
+	<p>微信扫一扫<br>关注公众号：热水哥</p>
+  </div>
+  
+<span style="color:#ff6611;">	本网站任何软件工具学习交流时测试使用！请勿作为任何非法用途行动！如出现任何纠纷，作者不承担任何法律责任！如出内容如造成侵权，请联系作者删除软件和进行销毁！使用者所造成的一切后果自行承担，作者不负责任。联系邮箱:935474823@qq.com</span>
+  <p>
+
+
+</div>
+
+
+			
+</tbody></table>
+
+
+<div style="float:left;padding:7px 0 7px 0">
+     <a href="index.html"><img src="new_images/logo.png" alt="" style="height:60px;"> 
+      </a></div>
+
+</h3><p data-anchor-id="1od6"><strong></strong></p><div class="md-section-divider"></div><h1 data-anchor-id="pkhv" id="软件购买">软件赞助 下面是软件的下载</h1><div class="md-section-divider">
+	
+	<div class="md-section-divider">
+</div>
+<h3 id="windows-客户端-网盘下载">
+	<a href="https://rsg.lanzouo.com/iUgvnzuq0gh" target="_blank"> </a>
+	<table style="width:100%;" cellpadding="2" cellspacing="0" border="2" bordercolor="#000000">
+		<tbody>
+			<tr>
+				<td>
+					
+	
+</p>
+<p>
+</p>
+					
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+						<a href="https://rsg.lanzouo.com/hrglgjys" target="_blank"><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong></strong></span><span style="font-size:18px;"><strong>优化版-华润万家管理工具新春v4.6版本2023年03月26日更新版本（全部下载次版本）</strong></span></a>
+					</h3>
+<a href="https://rsg.lanzouo.com/i8i4b01e683i" target="_blank"> </a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+						<a href="https://rsg.lanzoum.com/hrglgjys" target="_blank"><span style="font-size:18px;"><strong> 优化版-华润万家管理工具新春v4.6版本2023年03月26日更新版本（全部下载次版本）</strong></span></a><br>
+					</h3>
+<a href="https://rsg.lanzouo.com/iNm4R01e63oj" target="_blank"> </a>
+				</td>
+			</tr>
+			
+				
+			<tr>
+				<td>
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+					<p>
+						
+						<a href="https://www.ixigua.com/7144910377950806564?id=7144909108661977608" target="_blank">	建议观看的西瓜视频教程合集</a></strong></span>
+				
+						
+	<span style="font-size:18px;color:#000000;"><strong><a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank">软件使用bilibili在线教程合集</a></strong></span>
+</p>
+					</h3>
+<a href="https://rsg.lanzouo.com/iPPoD01e0sji" target="_blank"> </a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+						<a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO" target="_blank"><span style="font-size:18px;"><strong>HR软件无法登录/无法查询中签处理 win10/win7 电脑版不能用点我</strong></span></a>
+					</h3>
+<a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO" target="_blank"> </a>
+				</td>
+			</tr>
+	
+			<tr>
+				<td>
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+						<a href="https://rsg.lanzoum.com/b0e3puvrg" target="_blank"><span style="font-size:18px;"><strong>如果第一次使用，必须观看的视频的教程 看了绝对会！！</strong></span></a>
+					</h3>
+<a href="https://rsg.lanzouo.com/iUgvnzuq0gh" target="_blank"> </a>
+							<tr>
+				<td>
+<h3>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">[在线观看]1.软件的下载和赞助教程&nbsp;</span></strong></a>
+	</div>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">2 软件账号的登录和导入&nbsp;</span></strong></a>
+	</div>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">3 软件登入后基本的查询中签作&nbsp;</span></strong></a>
+	</div>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">4 新版查消费和查等提货等功能&nbsp;</span></strong></a>
+	</div>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">5 一键模拟手动报名和修改密码功能&nbsp;</span></strong></a>
+	</div>
+	<div style="text-align:center;">
+		<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"><strong><span style="font-size:18px;line-height:2;">6 钉钉挂机推送功能</span></strong></a>
+	</div>
+<a href="https://www.bilibili.com/medialist/detail/ml1542181822" target="_blank"> </a>
+</h3>
+							</td>
+				
+				
+			</tr>
+				</td>
+				
+				
+			</tr>
+					<tr>
+				<td>
+					<h3 id="windows-客户端-网盘下载" style="text-align:center;">
+						<a href="https://rsg.lanzoum.com/hrrjgxgj1" target="_blank"><span style="font-size:18px;"><strong>软件最新版本获取工具(自动更新一键更新)</strong></span></a>
+					</h3>
+<a href="https://rsg.lanzouo.com/iUgvnzuq0gh" target="_blank"> </a>
+			
+			
+				</td>
+				
+				
+			</tr>
+		</tbody>
+	</table>
+</h3>
+	
+
+<p>
+<hr>
+
+<p>
+	<a href="https://www.bilibili.com/medialist/detail/ml1542181822" class="btn btn-primary btn-right has-color" target="_blank"><span style="color:#000000;font-size:24px;"><strong>华润查单软件软件操作教程</strong></span></a>&nbsp;
+</p>
+<hr>
+<p>
+	<a href="http://reshuige.com/lj.html" class="btn btn-primary btn-right has-color" target="_blank"><span style="color:#000000;font-size:24px;"><strong>华润领券下单软件【小白禁止赞助】</strong></span></a>&nbsp;
+</p>
+<hr>
+	<a href="https://www.ixigua.com/7115052819467469352" class="btn btn-primary btn-right has-color" target="_blank"><span style="color:#000000;font-size:24px;"><strong>必须看的换IP教程</strong></span></a>&nbsp;  	<a href="http://www.ydaili.cn//main/register.aspx?str_code=868V8ND8" class="btn btn-primary btn-right has-color" target="_blank"><span style="color:#000000;font-size:24px;"><strong>IP提取网站</strong></span></a>&nbsp;
+
+
+	<hr>
+</h2>
+<span style="color:#ff6611;">	本网站任何软件工具学习交流时测试使用！请勿作为任何非法用途行动！如出现任何纠纷，作者不承担任何法律责任！如出内容如造成侵权，请联系作者删除软件和进行销毁！使用者所造成的一切后果自行承担，作者不负责任。</span>
+<hr>
+<span style="color:#E53333;">正在全面优化查消费系统和软件整体的优化，如：同一天只算1笔[优先计算线上]，预计3月15号前完成</span>
+<hr>
+</p>
+<p>
+
+	 <h3>  <a href="lj.html">	<button type="button" id="submit" class="btn btn-danger btn-block" style="background:#001280;"><font size=4 color="#fff"><b>hr下单/核销</font></button></a>
+	
+</blockquote><p data-anchor-id="w87s"></p>
+<p style="text-align:center;">
+	<span style="font-size:16px;color:#E53333;"><strong>首先通过（浏览器打开）赞助网站赞助后得到软件激活码</strong></span> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;"><strong>👇</strong></span> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;color:#E56600;"><strong>下载软件，关闭杀毒软件，解压到目录里，打开软件，输入激活码，导入账号----密码，登录后操作</strong></span> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;"><strong>👇</strong></span> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;color:#FF9900;"><strong>如果显示登录失败，打开</strong></span><a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO" target="_blank"><span style="font-size:16px;color:#000000;"><strong>HR软件无法登录/无法查询中签处理 win10/win7 电脑版不能用点我</strong></span></a> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;"><strong>👇</strong></span> 
+</p>
+<p style="text-align:center;">
+	<span style="font-size:16px;color:#64451D;"><strong>如果卡密丢失了，或者忘了，</strong></span><strong><span style="color:#64451D;">&nbsp;</span><a href="https://www.zuuu.cn/orderquery"><span style="color:#64451D;">订单查询</span></a></strong> 
+</p>
+<p>
+	<br />
+</p>
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://rsg.lanzouo.com/iUgvnzuq0gh" target="_blank">    华润万家管理工具v1.2版本2022年02月10日版本（没下载过的，下载这个）</a></h3>-->
+
+
+
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://rsg.lanzoum.com/imsdwzuq1uh" target="_blank">   华润万家管理工具 exe（点击就直接下）</a></h3>-->
+
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://rsg.lanzouo.com/iYdMezintsd" target="_blank">  2022年最新报名教程</a></h3>-->
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://shimo.im/docs/EsQEHlxOgkQ7zWWO"   target="_blank">HR软件无法登录/无法查询中签处理 win10/win7 电脑版不能用点我  </a> </h3>-->
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://rsg.lanzoui.com/hrspjc" target="_blank">出现：您在此页面时间过久 解决办法 报名教程 </a></h3>-->
+
+
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://pan.baidu.com/s/1WDfN9vMmhtu-OeGwt4A_hw     -->
+<!--" target="_blank">百度网盘下载</a> 提取码: luq2</h3>-->
+
+<!--<div class="md-section-divider"></div><h3 data-anchor-id="5eiv" id="windows-客户端-网盘下载"><a href="https://rsg.lanzoum.com/hrspjc" target="_blank">   建议观看的视频教程</a></h3>-->
+<!--
+  <ul>
+  <li>发现任何激活码一码多用，直接禁用拉黑</li>
+  <li>电脑小白尽量不要下载购买软件，软件需要解压，放到文件夹里面，然后管理员模式运行，最好关闭杀毒</li>
+  </ul>
+</blockquote><table data-anchor-id="5d2o" class="table table-striped-white table-bordered">
+	    <p>软件的软件用易语言编写，必须<i class="icon-file"></i> <strong>关闭杀毒</strong>，软件必须把 <i class="icon-file"></i> <strong>所有文件解压</strong> ，然后<strong>管理员模式运行</strong> 软件</p>
+	    
+<hr>
+<!--<a href="https://reshuige.com/jc.html" target="_blank">文字版本教程</a></td>-->
+
+<!--  软件的软件用易语言编写，必须 关闭杀毒，软件必须把  所有文件解压 ，然后管理员模式运行 软件-->
+<!--</blockquote><div class="md-section-divider"></div><h1 data-anchor-id="hvjd" id="软件下载">软件下载</h1><p data-anchor-id="67cq">请选择自己需要的版本，您还可以前往以下网址下载：</p><blockquote data-anchor-id="bboc" class="white-blockquote">-->
+<!--  <h3 id="综合版本下载"><a href="https://rsg.lanzous.com/iE0iUo8746j" target="_blank">电脑版 点击下载 蓝奏 下载2020-01-12版</a></h3>-->
+<!--    <h3 id="综合版本下载"><a href="https://pan.baidu.com/s/18mp641xym-CIsHkZNSB2EQ target="_blank">百度云 下载2020-01-25版 提取码：df6k   </a></h3>-->
+
+
+  <!--<h3 id="查消费版本"><a href="https://rsg.lanzous.com/iW0mmey3hkd" target="_blank">查消费版本</a></h3>-->
+  
+ <!--</blockquote><hr><div class="md-section-divider"></div><h3 data-anchor-id="m8it" id="文字版本教程">文字版本教程</h3><p data-anchor-id="hdw3">-&gt; 拿到密(号) -&gt;打开软件，输入激活码，导入账号，登录，选择需要查询的选项，查询！导出！</p><p data-anchor-id="aj1n">付款后没找到密(号)可在购网站右上角订单查询，然后填入你购买时填的联系方式即可查找。 <br>
+不记得填写的联系方式的，可到付款帐单处找到订单号再到买网站上查询。</p><blockquote data-anchor-id="pcuw" class="white-blockquote">
+  <p>注意软件不包会使用，也不包你赚钱，不服务大爷型客户（不看教程要你一步一步教的不要付费买，谢谢）。 <br>
+  账号导入的格式：账号----密码 如：<code>188888888----mima1234</code></p>
+
+再一次感谢您花费时间阅读这份教程</p><blockquote data-anchor-id="pm0l" class="white-blockquote">
+  <p>微信:reshuige666  作者 [reshuige.com]</p>
+  				      <hr>
+    <h3>  <a href="lj.html">	<button type="button" id="submit" class="btn btn-danger btn-block" style="background:#001280;"><font size=4 color="#fff"><b>hr下单/核销/支付</font></button></a>
+    
+</blockquote></div>
+</body>
+ 
+   <script> 
+   function weixinTip(ele){ 
+   var ua = navigator.userAgent; 
+   var isWeixin = !!/MicroMessenger/i.test(ua); 
+   if(isWeixin){ 
+    ele.onclick=function(e){ 
+     window.event? window.event.returnValue = false : e.preventDefault(); 
+     document.getElementById('JweixinTip').style.display='block'; 
+    } 
+    document.getElementById('JweixinTip').onclick=function(){ 
+     this.style.display='none'; 
+    } 
+   } 
+   } 
+   var btn1 = document.getElementById('YUEZEYI1');//1 
+   weixinTip(btn1); 
+   var btn2 = document.getElementById('YUEZEYI2'); //2 
+   weixinTip(btn2); 
+   </script> -->
+
+
+
+	</script>
+   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id: "JnoDL7xGHuujrDcA",ck: "JnoDL7xGHuujrDcA"})</script>
+</html>
