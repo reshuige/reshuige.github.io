@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>热水哥 - 系列/华润放货茅台的库存数查询</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" id="bootstrap-css" href="http://reshuige.com/static/static/css/bootstrap.min.css" type="text/css" media="all">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <link rel="stylesheet" href="/static/static1/css/layui.css" media="all">
+    <script src="http://reshuige.com/static/static1/js/jquery.min1.js"></script>
+    <script src="http://reshuige.com/static/static1/js/vue.js"></script>
+
+	<script type="text/javascript" src="/static/static/js/bootstrap.min.js"></script>
+   <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id: "JnoDL7xGHuujrDcA",ck: "JnoDL7xGHuujrDcA"})</script>
+	<link rel="stylesheet" href="http://reshuige.com/custom.css">
+	<style type="text/css">
+		img.wp-smiley, img.emoji {
+			display: inline !important;
+			border: none !important;
+			box-shadow: none !important;
+			height: 1em !important;
+			width: 1em !important;
+			margin: 0 .07em !important;
+			vertical-align: -0.1em !important;
+			background: none !important;
+			padding: 0 !important;
+	
+	</style>
+</head>
+<body>
+	
+
+	
+	<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="http://reshuige.com">热水哥主页</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/kc.html">日常库存</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/gqkc.html">活动库存</a>
+					
+				</li>
+				
+									<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hddm.html">华润活动代码查询</a>
+				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="http://www.reshuige.com/qqqun.html">关注热水哥</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/hr.html">华润管理工具</a>
+				</li>
+					<li class="nav-item">
+					<a class="nav-link" href="http://reshuige.com/gv.html">贵旅优品中签查询</a>
+				</li>
+		
+			</ul>
+		</div>
+	</nav>
+		<hr>
+	<h2>华润万家活动放货库存 - reshuige.com</h2>
+
+
+
+		<hr>
+		
+<div id="app" class="container">
+  <label for="code" >活动规则ID：</label>
+  <select class="form-control" id="code" v-model="code">
+    <option value="">请选择活动规则</option>
+
+<option value="370">《飞天茅台酒1000ml-抽签规则》 06月12日 00:00 ~ 06月15日 23:59 </option> 
+<option value="373">《飞天茅台酒1000ml-抽签规则》 06月19日 00:00 ~ 06月22日 23:59	 </option> 
+
+<option value="366">放量活动	05月17日 08:00 ~ 05月18日 23:59</option> 
+
+  </select>
+  
+  
+  
+  
+  <button @click="queryCity" :disabled="!code" class="btn btn-primary" >查询</button>
+  
+
+  
+  
+  <div>
+<button v-for="(city, index) in cityAll" :key="city.cityId" @click="queryStore(city.cityId)"  class="btn btn-primary mr-2">
+    {{ city.cityName }}
+  </button>
+  </div>
+  <div v-if="storeArr.length > 0">
+    <h2>门店货存</h2>
+  <table class="table table-striped">
+  <thead class="table table-striped">
+    <tr>
+      <th>门店名称</th>
+      <th>报名人数</th>
+      <th>库存数量</th>
+      <th>中奖概率</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr v-for="store in storeArr" :key="store.code">
+      <td>{{ store.storeName }}</td>
+      <td>{{ store.result }}</td>
+      <td>{{ store.total }}</td>
+      <td>{{ (store.probability * 100).toFixed(2) }}%</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+<!--<div id="app">-->
+<!--  <div class="layui-fluid" style="margin-top: 100px">-->
+<!--    <span v-for="item in cityAll">-->
+<!--      <button type="button" style="margin: 2px 2px" class="layui-btn layui-btn-primary layui-btn-radius" @click="queryStore(item.cityId)">{{item.cityName}}</button>-->
+<!--    </span>-->
+<!--  </div>-->
+<!--  <div class="layui-form" style="margin: 10px 0 60px 0">-->
+<!--    <table class="layui-table">-->
+<!--      <colgroup>-->
+<!--        <col width="100">-->
+<!--        <col width="100">-->
+<!--        <col width="80">-->
+<!--        <col width="100">-->
+<!--        <col width="100">-->
+<!--        <col width="80">-->
+<!--      </colgroup>-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>门店</th>-->
+<!--          <th>库存</th>-->
+<!--          <th>报名人数</th>-->
+<!--          <th>取货地址</th>-->
+<!--          <th>备注</th>-->
+<!--          <th>中签概率</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--        <tr v-for="item in storeArr">-->
+<!--          <td>{{item.storeName}}</td>-->
+<!--          <td>{{item.total}}</td>-->
+<!--          <td>{{item.result}}</td>-->
+<!--          <td>{{item.storeAddress}}</td>-->
+<!--          <td>{{item.timeInfo}}</td>-->
+<!--          <td>{{(item.probability * 100).toFixed(2)}}%</td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--    <br>-->
+<!--    <div style="color:#FF0000; font-size:12px; text-align:center;">不显示城市请却换手机或电脑IP即可</div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+<script type="text/javascript">
+
+let api_hr_url = "https://app.crv.com.cn"
+let cityUrl, storeUrl, storeNumUrl
+let app = new Vue({
+  el: "#app",
+  data: {
+    cityAll: [], // 所有城市
+    storeArr: [], // 门店货存
+    code: "" // 活动规则ID
+  },
+  methods: {
+    // 查询城市所有的门店和货存
+    queryStore: function(cityId) {
+      let param = "?param=%7B%22cityId%22%3A" + cityId + "%2C%22ruleId%22%3A%22"+this.code+"%22%7D"
+      this.storeArr = []
+      $.ajax({
+        url: storeUrl + param,
+        type: "get",
+        dataType: "json",
+        data: {},
+        success: function(data) {
+          for (var i = 0; i < data.data.length; i++) {
+            let store = data.data[i]
+            let param1 = "?param=%7B%22presaleRuleId%22%3A%22"+app.code+"%22%2C%22shopCode%22%3A%22" + data.data[i].code + "%22%2C%22preSaleTimeId%22%3A0%7D"
+            $.ajax({
+              url: storeNumUrl + param1,
+              type: "get",
+              dataType: "json",
+              data: {},
+              success: function(data) {
+                let one = {
+                  "cityId": store.cityId,
+                  "storeName": store.storeName,
+                  "storeAddress": store.storesAddress,
+                  "code": store.code,
+                  "total": data.data.total,
+                  "timeInfo": data.data.timeInfo,
+                  "result": data.data.result,
+                  "probability": (data.data.total ) / data.data.result / 2 // 计算概率
+                }
+                app.storeArr.push(one)
+              }
+            })
+          }
+        }
+      })
+    },
+    // 查询所有城市
+    queryCity: function() {
+      cityUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/findPreSaleCity?param=%7B%22ruleId%22%3A%22"+this.code+"%22%7D"
+      storeUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/findPreSaleStore"
+      storeNumUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/onlineDraw/signCount"
+
+      this.cityAll = []
+      $.ajax({
+        url: cityUrl,
+        type: "get",
+        dataType: "json",
+        data: {},
+        success: function(data) {
+          for (let key in data.data) {
+            for (var j = 0; j < data.data[key].length; j++) {
+              app.cityAll.push(data.data[key][j])
+            }
+          }
+        }
+      })
+    }
+  }
+})
+
+
+  //let api_hr_url = "https://app.crv.com.cn"
+  //// 加载所有的城市
+  //let cityUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/findPreSaleCity?param=%7B%22ruleId%22%3A%22"+code+"%22%7D"
+  //// 查询城市门店
+  //let storeUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/findPreSaleStore"
+  //// 查询门店库存
+  //let storeNumUrl = api_hr_url + "/app_timelimit/v1/dc-timelimit/presale/onlineDraw/signCount"
+
+  //var app = new Vue({
+  //  el: "#app",
+  //  data: {
+  //    cityAll: [], // 所有城市
+  //    storeArr: [] // 门店货存
+  //  },
+  //  methods: {
+  //    // 查询城市所有的门店和货存
+  //    queryStore: function(cityId) {
+  //      let param = "?param=%7B%22cityId%22%3A" + cityId + "%2C%22ruleId%22%3A%22"+code+"%22%7D"
+  //      app.storeArr = []
+  //      $.ajax({
+  //        url: storeUrl + param,
+  //        type: "get",
+  //        dataType: "json",
+  //        data: {},
+  //        success: function(data) {
+  //          for (var i = 0; i < data.data.length; i++) {
+  //            let store = data.data[i]
+  //            let param1 = "?param=%7B%22presaleRuleId%22%3A%22"+code+"%22%2C%22shopCode%22%3A%22" + data.data[i].code + "%22%2C%22preSaleTimeId%22%3A0%7D"
+  //            $.ajax({
+  //              url: storeNumUrl + param1,
+  //              type: "get",
+  //              dataType: "json",
+  //              data: {},
+  //              success: function(data) {
+  //                let one = {
+  //                  "cityId": store.cityId,
+  //                  "storeName": store.storeName,
+  //                  "storeAddress": store.storesAddress,
+  //                  "code": store.code,
+  //                  "total": data.data.total,
+  //                  "timeInfo": data.data.timeInfo,
+  //                  "result": data.data.result,
+  //                  // "probability": data.data.total / data.data.result // 计算概率
+  //                  "probability": (data.data.total ) / data.data.result // 计算概率，先让data.data.total除以2
+  //                }
+  //                app.storeArr.push(one)
+  //              }
+  //            })
+  //          }
+  //        }
+  //      })
+  //    }
+  //  }
+  //})
+
+  //// 查询所有城市
+  //$.ajax({
+  //  url: cityUrl,
+  //  type: "get",
+  //  dataType: "json",
+  //  data: {},
+  //  success: function(data) {
+  //    for (let key in data.data) {
+  //      for (var j = 0; j < data.data[key].length; j++) {
+  //        app.cityAll.push(data.data[key][j])
+  //      }
+  //    }
+  //  }
+  //})
+</script>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<a href="kc.html" class="btn btn-primary btn-block" target="_blank">日常活动库存</a>
+			</div>
+			<div class="col-md-6">
+				<a href="index.html" class="btn btn-primary btn-block" target="_blank">返回主页</a>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<a href="https://reshuige.houfaka.com/" class="btn btn-info btn-block" target="_blank">综合赞助卡密赞助网站</a>
+			</div>
+			<div class="col-md-6">
+				<a href="https://reshuige.houfaka.com/" class="btn btn-info btn-block" target="_blank">华润查单软件操作教程</a>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-12">
+				<a href="hr.html" class="btn btn-primary btn-block" target="_blank">华润万家管理工具软件下载</a>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
+
+
+
